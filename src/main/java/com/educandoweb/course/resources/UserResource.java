@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,30 +20,36 @@ import com.educandoweb.course.services.UserService;
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping
-	public ResponseEntity<List<User>>findAll() {
+	public ResponseEntity<List<User>> findAll() {
 		List<User> allUser = userService.findAll();
 		return ResponseEntity.ok().body(allUser);
 	}
-	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<User> findByid(@PathVariable Long id) {
 		User user = userService.findByid(id);
 		return ResponseEntity.ok().body(user);
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<User> insert(@RequestBody User user) {
 		user = userService.insert(user);
-		
+
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.buildAndExpand(user.getId()).toUri();
-		
+
 		return ResponseEntity.created(uri).body(user);
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		userService.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 
 }

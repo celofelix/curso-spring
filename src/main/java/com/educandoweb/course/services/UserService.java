@@ -11,21 +11,25 @@ import com.educandoweb.course.repositories.UserRepository;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
-	
+
 	public User findByid(Long id) {
 		Optional<User> user = userRepository.findById(id);
 		return user.get();
 	}
-	
+
 	public User insert(User user) {
 		return userRepository.save(user);
+	}
+
+	public void delete(Long id) {
+		userRepository.deleteById(id);
 	}
 
 }
