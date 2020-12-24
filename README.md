@@ -38,7 +38,7 @@ Abaixo, seguem links bem bacanas, sobre tópicos mencionados durante a aula:
 * [Site oficial do Heroku](https://www.heroku.com/)
 * [Site oficial do GIT](https://git-scm.com/)
 * [Site oficial do GitHub](http://github.com/)
-* [Site oficial do PostgreSQL] (https://www.postgresql.org/download/)
+* [Site oficial do PostgreSQL](https://www.postgresql.org/download/)
 * [Referência para o padrão arquitetural REST](https://restfulapi.net/)
 
 [Neste link](https://drive.google.com/drive/folders/1an_-MElkkl7SpaOPPsq37xwQa0SY5E-a), seguem os slides apresentados como o roteiro utilizado para o desenvolvimento do projeto da nossa sessão.
